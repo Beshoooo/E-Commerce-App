@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Register Now:</h2>
+
+<!-- Error from server -->
+  <div *ngIf="errorMsg" class="alert alert-danger mb-2 mt-3 py-2">
+    <p class="mb-0">{{errorMsg}}</p>
+  </div>
+<form [formGroup]="LoginForm" (ngSubmit)="Login(LoginForm)">
+<!-- Email  -->
+    <label for="email">Email:</label>
+    <input type="text" id="email" formControlName="email" class="form-control mb-2">
+
+    <div *ngIf="LoginForm.get('email')?.errors && LoginForm.get('email')?.touched" class="alert alert-danger py-2">
+      <p *ngIf="LoginForm.get('email')?.getError('required')" class="mb-0">Email is required</p>
+      <p *ngIf="LoginForm.get('email')?.getError('email')"class="mb-0">Email is invaild</p>
+    </div>
+<!-- Password -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password" class="form-control mb-2">
+
+    <div *ngIf="LoginForm.get('password')?.errors && LoginForm.get('password')?.touched" class="alert alert-danger py-2">
+      <p *ngIf="LoginForm.get('password')?.getError('required')" class="mb-0">Password is required</p>
+      <p *ngIf="LoginForm.get('password')?.getError('pattern')"class="mb-0">Password must start with capital char and contain at least 6 chars and digits  </p>
+    </div>
+
+
+    <button type="submit" class="btn btn-success" [disabled]="LoginForm.invalid">
+      Login
+      <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin ms-1"></i>
+    </button>
+
+
+
+  </form>
+
+
+</div>
