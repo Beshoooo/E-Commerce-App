@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" *ngFor="let product of products">
+      <app-product-item [product]="product"></app-product-item>
+    </div>
+  </div>
+</div>
+
+<!-- When hover show tips -->
+<script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>

@@ -6,5 +6,35 @@
   font-family: 'Encode Sans', sans-serif;
 }
 
-.Cursor_pointer{cursor: pointer;}
+.cursorPointer{cursor: pointer;}
 
+/*Product*/
+.ratingColor{color: #ffc908;}
+.product:hover
+{
+  box-shadow:rgba(145,158,171,.2) 0px 2px 4px -1px,rgba(145,158,171,.14) 0px 4px 5px 0px,rgba(145,158,171,.12) 0px 1px 10px 0px;
+  border: solid 1px #0aad0a
+}
+.product .btn
+{
+  transition: transform 1s , opacity 1s;
+  transform: translateY(100%);
+  opacity: 0;
+}
+.product:hover .btn
+{
+    opacity: 1;
+    transform: translateY(0%);
+
+}
+.text-main{color: #0aad0a;}
+.bg-main{background-color: #0aad0a;color: #fff;}
+
+a , a:hover{
+  color: black;
+  text-decoration: none;
+}
+
+.inOneLine {
+  white-space: nowrap;
+}
