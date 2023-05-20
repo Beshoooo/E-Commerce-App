@@ -6,7 +6,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
-import { CartComponent } from './components/cart/cart.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { BrandsComponent } from './components/brands/brands.component';
@@ -16,7 +15,6 @@ const routes: Routes = [
   {path:"",redirectTo:"Home",pathMatch:'full'},
 
   {path:"Home",canActivate:[AuthGuard],component:HomeComponent,title:"Home"},
-  {path:"Cart",canActivate:[AuthGuard],component:CartComponent,title:"Cart"},
   {path:"Products",canActivate:[AuthGuard],component:ProductsComponent,title:"Products"},
   {path:"Categories",canActivate:[AuthGuard],component:CategoriesComponent,title:"Categories"},
   {path:"Brands",canActivate:[AuthGuard],component:BrandsComponent,title:"Brands"},
@@ -24,6 +22,9 @@ const routes: Routes = [
 
   {path:"Register",component:SignUpComponent,title:"Register"},
   {path:"Login",component:SignInComponent,title:"Login"},
+
+  //For route to another sub module
+  { path: 'cart', loadChildren: () => import('./cart/cart.module').then(m => m.CartModule) },
 
   {path:"**",component:NotFoundComponent,title:"Not Found"}
 ];

@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/core/services/product.service';
 export class FeaturedProductsComponent implements OnInit {
 
   products:Product[]=[];
+  searchByName:string= '';
 
   constructor(private _productService:ProductService) {}
 
