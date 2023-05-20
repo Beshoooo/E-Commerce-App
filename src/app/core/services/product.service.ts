@@ -11,12 +11,12 @@ export class ProductService {
 
   GetAllProducts():Observable<any>
   {
-    return this._httpClient.get("https://route-ecommerce.onrender.com/api/v1/products")
+    return this._httpClient.get("https://ecommerce.routemisr.com/api/v1/products")
   }
 
   GetProductDetails(id:string):Observable<any>
   {
-    return this._httpClient.get(`https://route-ecommerce.onrender.com/api/v1/products/${id}`)
+    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/products/${id}`)
   }
 
 }

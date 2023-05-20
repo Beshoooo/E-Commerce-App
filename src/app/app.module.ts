@@ -21,6 +21,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MainSliderComponent } from './components/main-slider/main-slider.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NotFoundComponent,
     FeaturedProductsComponent,
     ProductItemComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    MainSliderComponent
   ],
   imports: [
     BrowserModule,

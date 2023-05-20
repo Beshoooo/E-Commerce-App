@@ -23,18 +23,18 @@ export class AuthService {
 
   Register(data:any):Observable<any>
   {
-    return this._httpClient.post("https://route-ecommerce.onrender.com/api/v1/auth/signup",data)
+    return this._httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/signup",data)
   }
 
   Login(data:any):Observable<any>
   {
-    return this._httpClient.post("https://route-ecommerce.onrender.com/api/v1/auth/signin",data)
+    return this._httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/signin",data)
   }
 
   CheckLogin()
   {
     let token:(string|null) = localStorage.getItem("userToken");
-    token = JSON.stringify(token);  //to convert null to string
+    token = JSON.stringify(token);  //to convert null to string to avoid errors
     let encoded = jwtDecode(token);
     this.userData.next(encoded);
   }
