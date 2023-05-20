@@ -1,1 +1,34 @@
-<p>cart works!</p>
+<div class="container py-5 my-5">
+  <div class="bg-light p-5">
+    <h2>Cart Shop</h2>
+    <ng-container *ngIf="cartDetails?.data">
+      <div class="d-flex justify-content-between align-item-center">
+        <h5>Total Price : <span class="text-main">{{cartDetails.data.totalCartPrice}} EGP</span></h5>
+        <h5>Total Number : <span class="text-main">{{cartDetails.numOfCartItems}}</span></h5>
+      </div>
+      <div>
+        <div class="row border-bottom p-2 align-item-center" *ngFor="let product of cartDetails.data.products | filterCart">
+          <div class="col-md-1">
+            <img [src]="product.product.imageCover" class="w-100" alt="producr Img">
+          </div>
+          <div class="col-md-11">
+            <div class="d-flex justify-content-between p-4">
+              <div class="w-75">
+                <h5>{{product.product.title}}</h5>
+                <h6 class="text-main">{{product.price}} EGP</h6>
+                <button class="btn m-0 p-0 text-danger" (click)="removeItemFromCart(product.product.id)">
+                  <i class="fa-solid fa-trash-can"></i>
+                  Remove</button>
+              </div>
+              <div>
+                <button class="btn btn-count text-main" (click)="updateItems(product.product.id,product.count+1)">+</button>
+                <span class="px-3">{{product.count}}</span>
+                <button class="btn btn-count text-main" (click)="updateItems(product.product.id,product.count-1)">-</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

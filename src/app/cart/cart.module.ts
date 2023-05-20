@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart.component';
+import { FilterCartPipe } from './pipes/filter-cart.pipe';
 
 
 @NgModule({
   declarations: [
-    CartComponent
+    CartComponent,
+    FilterCartPipe
   ],
   imports: [
     CommonModule,
