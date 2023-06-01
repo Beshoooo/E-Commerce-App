@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/cart/services/cart.service';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class SignInComponent {
   isLoading:boolean=false;
   errorMsg:string="";
 
-  constructor(private _authService:AuthService,private _router:Router)
+  constructor(private _authService:AuthService,private _router:Router,private _cartService:CartService)
   {
     _authService.navigateToHome();
   }

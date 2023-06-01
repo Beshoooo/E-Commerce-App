@@ -13,7 +13,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
@@ -22,6 +22,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { MainSliderComponent } from './components/main-slider/main-slider.component';
 import { SearchByNamePipe } from './core/pipes/search-by-name.pipe';
+import { CheckoutComponent } from './cart/components/checkout/checkout.component';
+import { AllordersComponent } from './cart/components/allorders/allorders.component';
+import { HttpInterceptorInterceptor } from './Interceptors/http-interceptor.interceptor';
+import { LoaderComponent } from './components/loader/loader.component';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +45,10 @@ import { SearchByNamePipe } from './core/pipes/search-by-name.pipe';
     ProductItemComponent,
     ProductDetailsComponent,
     MainSliderComponent,
-    SearchByNamePipe
+    SearchByNamePipe,
+    CheckoutComponent,
+    AllordersComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +57,16 @@ import { SearchByNamePipe } from './core/pipes/search-by-name.pipe';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CarouselModule,
-    FormsModule
+    FormsModule,
+
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:HttpInterceptorInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

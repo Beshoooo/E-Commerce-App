@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top bg-white">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="Home">
       <img src="./assets/images/logo.svg" alt="">
@@ -34,17 +34,29 @@
             <i class="fa-brands fa-youtube me-2"></i>
           </div>
         </li>
+      </ul>
+
+      <ul class="navbar-nav ms-auto">
+        <li class="">
+          <a class="nav-link cursorPointer position-relative">
+            <i routerLink="/cart" class="fa-solid fa-cart-shopping fa-2x text-main"></i>
+            <div class="badge bg-main position-absolute top-0 end-0">{{numOfCartItems}}</div>
+          </a>
+        </li>
 
         <li class=" me-2" *ngIf="!IsLoggedIn">
-          <a class="nav-link" routerLink="Register" routerLinkActive="active">Register</a>
+          <a class="nav-link cursorPointer" routerLink="Register" routerLinkActive="active">Register</a>
         </li>
         <li class=" me-2" *ngIf="!IsLoggedIn">
-          <a class="nav-link" routerLink="Login" routerLinkActive="active">Login</a>
+          <a class="nav-link cursorPointer" routerLink="Login" routerLinkActive="active">Login</a>
         </li>
         <li class=" me-2" *ngIf="IsLoggedIn">
           <a class="nav-link cursorPointer" (click)="Logout()">Logout</a>
         </li>
+
       </ul>
+
+
 
 
     </div>

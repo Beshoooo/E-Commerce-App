@@ -26,6 +26,7 @@ export class AuthService {
     return this._httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/signup",data)
   }
 
+
   Login(data:any):Observable<any>
   {
     return this._httpClient.post("https://ecommerce.routemisr.com/api/v1/auth/signin",data)
@@ -52,5 +53,7 @@ export class AuthService {
     if(localStorage.getItem("userToken") != null)
     {this._router.navigate(["/Home"]);}
   }
+
+
 
 }

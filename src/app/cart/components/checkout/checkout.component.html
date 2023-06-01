@@ -1,0 +1,22 @@
+<div class="container py-5 my-5">
+
+  <div class="w-75 mx-auto">
+    <form class="form-group" [formGroup]="shippingForm" (ngSubmit)="handleOnline()">
+      <label for="details" >Details</label>
+      <input class="form-control mb-3" formControlName="details" id="details">
+
+      <label for="city" >City</label>
+      <select name="city" id="city" formControlName="city" class="form-select mb-3">
+        <option selected="selected" disabled>Open this select menu</option>
+        <option *ngFor="let item of countries" [value]="item">
+          {{item}}
+        </option>
+      </select>
+
+      <label for="phone" >Phone</label>
+      <input type="tel" class="form-control mb-3" formControlName="phone" id="phone">
+
+      <button class="btn btn-primary w-100">Continue</button>
+    </form>
+  </div>
+</div>

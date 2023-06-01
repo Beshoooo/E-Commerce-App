@@ -39,7 +39,7 @@
 
     <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="alert alert-danger py-2">
       <p *ngIf="registerForm.get('rePassword')?.getError('required')" class="mb-0">rePassword is required</p>
-      <p *ngIf="registerForm.get('rePassword')?.getError('pattern')"class="mb-0">rePassword must match password</p>
+      <p *ngIf="registerForm.get('rePassword')?.getError('RepasswordNotMathced')"class="mb-0">rePassword must match password</p>
     </div>
 <!-- phone -->
     <label for="phone">Phone</label>

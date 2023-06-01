@@ -1,1 +1,9 @@
-<p>brands works!</p>
+<div class="container">
+  <ng-container class="d-flex justify-content-center align-items-center ">
+  <div class="row brand " *ngFor="let brand of AllBrands ;">
+    <div class="col-sm-3 col-md-3 g-5">
+      <img [src]="brand.image">
+    </div>
+  </div>
+</ng-container>
+</div>

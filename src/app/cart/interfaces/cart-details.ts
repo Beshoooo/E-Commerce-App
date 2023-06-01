@@ -5,6 +5,7 @@ export interface CartDetails {
 
 interface Data
 {
+  _id:number,
   totalCartPrice:number,
   products:productsDetails[]
 

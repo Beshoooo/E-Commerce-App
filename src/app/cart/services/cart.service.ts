@@ -1,51 +1,62 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
+  numOfCartItems:BehaviorSubject<number> =new BehaviorSubject(0);
   Token:string|null;
 
   constructor(private _httpClient:HttpClient)
   {
     this.Token = localStorage.getItem("userToken");
+    if(this.Token !=null)
+    {
+      this.getCart().subscribe({
+      next:res=>this.numOfCartItems.next(res.numOfCartItems)})
+    }
   }
 
+  /* relaced all header with [interceptor]*/
   addProduct(id:string):Observable<any>
   {
     return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/cart`,
-    {productId:id},     //body
-    {                   //headers needed
-      headers:
-        {token:`${this.Token}`}
-    })
+    {productId:id})
   }
 
   getCart(): Observable<any>
   {
-    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/cart`,
-    {headers:
-      {token:`${this.Token}`}
-    })
+    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/cart`,)
   }
 
   updateItem(id:string,newCount:number):Observable<any>
   {
     return this._httpClient.put(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,
-    {count:`${newCount}`},
-    {
-      headers:{token:`${this.Token}`}
-    })
+    {count:`${newCount}`})
   }
 
   removeItem(id:string):Observable<any>
   {
-    return this._httpClient.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,
+    return this._httpClient.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,)
+  }
+
+  generateOnlinePayment(cartId:string ,shippingAddress:any):Observable<any>
+  {
+    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`,
     {
-      headers:{token:`${this.Token}`}
+      "shippingAddress":shippingAddress
+    })
+  }
+
+
+  getAllCountries():Observable<any>
+  {
+    return this._httpClient.get("https://api.countrystatecity.in/v1/countries",
+    {
+      headers:{"X-CSCAPI-KEY":"ZngxRXJXeWdxaHZHWXoxZ2VIeXFSaElleml0T2FzVjdVd0FteHg5MQ=="}
     })
   }
 

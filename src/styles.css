@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300&display=swap');
 
-
+body{padding-top: 150px;}
 *{
   font-family: 'Encode Sans', sans-serif;
 }
@@ -37,4 +37,23 @@ a , a:hover{
 
 .inOneLine {
   white-space: nowrap;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+
+/*scroll bar*/
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-track {
+background-color: #3f4142;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 50px;
+  box-shadow: 0 0 5px rgb(0 0 0 / 0.5) inset;
 }
