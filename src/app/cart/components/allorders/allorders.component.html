@@ -1,1 +1,70 @@
-<p>allorders works!</p>
+<div class="container">
+  <h3 class="text-center mb-2">Hello {{MyName}}</h3>
+  <p class="lead text-main fw-bold text-center mb-5">Thank you for choosing us</p>
+  <table class="table table-bordered text-center">
+    <thead class="table-dark">
+      <tr>
+        <td>#</td>
+        <td>Created At</td>
+        <td class="text-start" rowspan="3">Address</td>
+        <td>Payment Type</td>
+        <td>Total Order Price</td>
+        <td>Tax Price</td>
+        <td>Is Paid</td>
+        <td>Is Delivered</td>
+      </tr>
+    </thead>
+    <tbody class="fw-bold">
+      <ng-container *ngFor="let order of orders;let i=index">
+        <tr>
+          <td>{{i+1}}</td>
+          <td>{{order.createdAt}}</td>
+          <td class="text-start">
+            <table class="table">
+              <thead>
+                <tr>
+                  <td class="table-secondary">City :</td>
+                  <td>{{order.shippingAddress.city}}</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="table-secondary">Details :</td>
+                  <td>{{order.shippingAddress.details}}</td>
+                </tr>
+                <tr>
+                  <td class="table-secondary">Phone :</td>
+                  <td>{{order.shippingAddress.phone}}</td>
+                </tr>
+              </tbody>
+
+            </table>
+          </td>
+          <td>{{order.paymentMethodType}}</td>
+          <td>{{order.totalOrderPrice}} EGP</td>
+          <td>{{order.taxPrice}} EGP</td>
+          <td>
+            <ng-container *ngIf="order.isPaid;else minus">
+              <i class="fa-solid fa-check text-main"></i>
+            </ng-container>
+            <ng-template #minus>
+              <i class="fa-solid fa-minus text-danger"></i>
+            </ng-template>
+
+          </td>
+          <td>
+            <ng-container *ngIf="order.isDelivered;else minus">
+              <i class="fa-solid fa-check text-main"></i>
+            </ng-container>
+            <ng-template #minus>
+              <i class="fa-solid fa-minus text-danger"></i>
+            </ng-template>
+
+          </td>
+        </tr>
+
+
+      </ng-container>
+    </tbody>
+  </table>
+</div>

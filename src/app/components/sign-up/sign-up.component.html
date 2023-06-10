@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Register Now:</h2>
+  <h2 class="mb-4">Register Now:</h2>
 
 <!-- Error from server -->
   <div *ngIf="errorMsg" class="alert alert-danger py-2">
@@ -9,49 +9,63 @@
 
   <form  class="form-group" [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
 <!-- Name -->
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name" class="form-control mb-2">
+    <mat-form-field class="example-full-width">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" id="name" formControlName="name" placeholder="Ex. Beshoy">
+    </mat-form-field>
 
-    <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="alert alert-danger py-2">
-      <p *ngIf="registerForm.get('name')?.getError('required')" class="mb-0">Name is required</p>
-      <p *ngIf="registerForm.get('name')?.getError('minlength')"class="mb-0">Name min length is 3 characters</p>
-      <p *ngIf="registerForm.get('name')?.getError('maxlength')"class="mb-0">Name max length is 10 characters</p>
+    <div *ngIf="registerForm.get('name')?.errors && registerForm.get('name')?.touched" class="text-danger closer">
+      <p *ngIf="registerForm.get('name')?.getError('required')" class="mb-0">Name is <strong>required</strong></p>
+      <p *ngIf="registerForm.get('name')?.getError('minlength')"class="mb-0">Name min length is <strong>3</strong> characters</p>
+      <p *ngIf="registerForm.get('name')?.getError('maxlength')"class="mb-0">Name max length is <strong>10</strong> characters</p>
     </div>
 <!-- Email  -->
-    <label for="email">Email:</label>
-    <input type="text" id="email" formControlName="email" class="form-control mb-2">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="email" formControlName="email" placeholder="Ex. c2@gmail.com">
+    </mat-form-field>
 
-    <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger py-2">
-      <p *ngIf="registerForm.get('email')?.getError('required')" class="mb-0">Email is required</p>
-      <p *ngIf="registerForm.get('email')?.getError('email')"class="mb-0">Email is invaild</p>
+    <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="text-danger closer">
+      <p *ngIf="registerForm.get('email')?.getError('required')" class="mb-0">Email is<strong>required</strong></p>
+      <p *ngIf="registerForm.get('email')?.getError('email')"class="mb-0">Enter <strong>valid</strong> email</p>
     </div>
 <!-- Password -->
-    <label for="password">Password:</label>
-    <input type="password" id="password" formControlName="password" class="form-control mb-2">
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="{{InTypePass}}" id="password" formControlName="password" placeholder="Ex. Alolk@123">
+      <mat-icon (click)="toggleShowPassword()" matSuffix>visibility_off</mat-icon>
+    </mat-form-field>
 
-    <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger py-2">
-      <p *ngIf="registerForm.get('password')?.getError('required')" class="mb-0">Password is required</p>
-      <p *ngIf="registerForm.get('password')?.getError('pattern')"class="mb-0">Password must start with capital char and contain at least 6 chars and digits  </p>
+    <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="text-danger closer">
+      <p *ngIf="registerForm.get('password')?.getError('required')" class="mb-0">Password is <strong>required</strong></p>
+      <p *ngIf="registerForm.get('password')?.getError('pattern')"class="mb-0">Password must start with <strong>capital char and contain at least 6 chars and digits</strong></p>
     </div>
 <!-- repassword -->
-    <label for="rePassword">rePassword</label>
-    <input type="password" id="rePassword" formControlName="rePassword" class="form-control mb-2">
+    <mat-form-field class="example-full-width">
+      <mat-label>rePassword</mat-label>
+      <input matInput type="{{InTypeRePass}}" type="password" id="rePassword" formControlName="rePassword" placeholder="Ex. Alolk@123">
+      <mat-icon (click)="toggleShowRePassword()" matSuffix>visibility_off</mat-icon>
+    </mat-form-field>
 
-    <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="alert alert-danger py-2">
-      <p *ngIf="registerForm.get('rePassword')?.getError('required')" class="mb-0">rePassword is required</p>
-      <p *ngIf="registerForm.get('rePassword')?.getError('RepasswordNotMathced')"class="mb-0">rePassword must match password</p>
+    <div *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched" class="text-danger closer">
+      <p *ngIf="registerForm.get('rePassword')?.getError('required')" class="mb-0">rePassword is <strong>required</strong></p>
+      <p *ngIf="registerForm.get('rePassword')?.getError('RepasswordNotMathced')"class="mb-0">rePassword must <strong>match</strong> password</p>
     </div>
 <!-- phone -->
-    <label for="phone">Phone</label>
-    <input type="tel" id="phone" formControlName="phone" class="form-control mb-2">
+    <mat-form-field>
+      <mat-label>Telephone</mat-label>
+      <span matPrefix>+1 &nbsp;</span>
+      <input type="tel" id="phone" formControlName="phone" matInput placeholder="555-5555-1234">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
 
-    <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="alert alert-danger py-2">
-      <p *ngIf="registerForm.get('phone')?.getError('required')" class="mb-0">Phone is required</p>
-      <p *ngIf="registerForm.get('phone')?.getError('minlength')"class="mb-0">Phone must be 11 digit</p>
+    <div *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched" class="text-danger closer">
+      <p *ngIf="registerForm.get('phone')?.getError('required')">Phone is <strong>required</strong></p>
+      <p *ngIf="registerForm.get('phone')?.getError('minlength')">Phone must be <strong>11</strong> digit</p>
     </div>
 
 
-    <button type="submit" class="btn btn-success" [disabled]="registerForm.invalid">
+    <button type="submit" class="btn btn-success d-block" [disabled]="registerForm.invalid">
       Register
       <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin ms-1"></i>
     </button>

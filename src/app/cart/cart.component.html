@@ -1,10 +1,10 @@
 <div class="container py-5 my-5">
-  <div class="bg-light p-5">
+  <div class="cart p-5">
     <ng-container *ngIf="cartDetails?.data">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mb-4">
         <h2>Cart Shop</h2>
         <a [routerLink]="['Checkout',cartDetails.data._id]">
-          <button class="btn btn-success">Continue to pay</button>
+          <button *ngIf="cartDetails.numOfCartItems !=0" class="btn btn-success">Continue to pay</button>
         </a>
       </div>
 
@@ -12,6 +12,7 @@
         <h5>Total Price : <span class="text-main">{{cartDetails.data.totalCartPrice}} EGP</span></h5>
         <h5>Total Number : <span class="text-main">{{cartDetails.numOfCartItems}}</span></h5>
       </div>
+
       <div>
         <div class="row border-bottom p-2 align-item-center" *ngFor="let product of cartDetails.data.products | filterCart">
           <div class="col-md-1">

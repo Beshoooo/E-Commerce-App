@@ -14,18 +14,18 @@ export class ProductDetailsComponent {
 
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
+    mouseDrag: true,
+    touchDrag: true,
     pullDrag: false,
-    dots: false,
-    navSpeed: 700,
+    dots: true,
+    navSpeed: 1000,
     navText: ['', ''],
     responsive: {
       0: {
-        items: 1
+        items:1
       }
     },
-    nav: true
+    nav: false
   }
 
 
@@ -48,7 +48,7 @@ export class ProductDetailsComponent {
   addTocart(id:string)
   {
     this._cartService.addProduct(id).subscribe({
-      next:Response=>console.log(Response),
+      next:Response=>{},
       error:err=>(console.log("error in response"))
     })
   }

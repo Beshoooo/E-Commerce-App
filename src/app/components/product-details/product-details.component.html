@@ -15,11 +15,33 @@
       <h2 class="garage-title">{{productDetails.title}}</h2>
       <p class="text-muted">{{productDetails.description}}</p>
       <div class="d-flex justify-content-between">
-        <span>{{productDetails.price | currency:'EGP '}}</span>
+        <div>
+          <h4 class="d-inline me-3">Price:</h4>
+          <span class="text-danger discount fw-bold me-5">{{productDetails.price + 149 | currency:'EGP '}}</span>
+          <span class="fw-bold">{{productDetails.price | currency:'EGP '}}</span>
+        </div>
         <div>
           <i class="fa-solid fa-star ratingColor"></i>
           {{productDetails.ratingsAverage}}
         </div>
+      </div>
+      <div class="mt-5">
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <td class="table-light">Category</td>
+              <td class="">{{productDetails.category.name}}</td>
+            </tr>
+            <tr>
+              <td class="table-light">Brand</td>
+              <td class="">{{productDetails.brand.name}}</td>
+            </tr>
+            <tr>
+              <td class="table-light">Sold</td>
+              <td class="">{{productDetails.sold}}</td>
+            </tr>
+        </tbody>
+        </table>
       </div>
       <button class="btn bg-main w-100 mt-1" (click)="addTocart(productDetails.id)">+ Add</button>
   </div>

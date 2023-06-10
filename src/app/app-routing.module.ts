@@ -11,6 +11,9 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { BrandsComponent } from './components/brands/brands.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { AllordersComponent } from './cart/components/allorders/allorders.component';
+import { ForgetPasswordComponent } from './components/forget-password/forget-password.component';
+import { RestPasswordComponent } from './components/rest-password/rest-password.component';
+import { WishlistComponent } from './wishlist/wishlist/wishlist.component';
 
 const routes: Routes = [
   {path:"",redirectTo:"Home",pathMatch:'full'},
@@ -20,11 +23,15 @@ const routes: Routes = [
   {path:"Categories",canActivate:[AuthGuard],component:CategoriesComponent,title:"Categories"},
   {path:"Brands",canActivate:[AuthGuard],component:BrandsComponent,title:"Brands"},
   {path:"ProductDetails/:id",canActivate:[AuthGuard],component:ProductDetailsComponent,title:"Product Details"},
-  {path:"allorders",component:AllordersComponent,title:"All Orders"},
+  {path:"allorders",component:AllordersComponent,canActivate:[AuthGuard],title:"My Orders"},
+  {path:"wishlist",component:WishlistComponent,canActivate:[AuthGuard],title:"My WishList"},
 
 
   {path:"Register",component:SignUpComponent,title:"Register"},
   {path:"Login",component:SignInComponent,title:"Login"},
+  {path:"ForgetPass",component:ForgetPasswordComponent,title:"Forget Password"},
+  {path:"ResetPass",component:RestPasswordComponent,title:"Reset Password"},
+
 
 
   //For route to another sub module

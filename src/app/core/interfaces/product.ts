@@ -4,12 +4,19 @@ export interface Product {
   title:string,
   ratingsAverage:number,
   category:Cat,
+  brand:Brands,
   id:string,
   description?:string,
-  images?:[]
+  images?:[],
+  wishlist:string,
+  quantity:number,
+  sold:number
 
 }
 
 interface Cat{
+  name:string
+}
+interface Brands{
   name:string
 }

@@ -1,16 +1,10 @@
 <div class="container">
-  <input [(ngModel)]="searchByName" class="form-control m-5 w-75">
+  <div class="d-flex justify-content-center align-items-center">
+    <input [(ngModel)]="searchByName" class="form-control m-5 w-100" placeholder="Search by name">
+  </div>
   <div class="row">
     <div class="col-md-2" *ngFor="let product of products | searchByName:searchByName">
-      <app-product-item [product]="product"></app-product-item>
+      <app-product-item [product]=" product"(delId)="HideItem($event)"></app-product-item>
     </div>
   </div>
 </div>
-
-<!-- When hover show tips -->
-<script>
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl)
-  })
-</script>

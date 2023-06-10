@@ -40,7 +40,7 @@ export class CartService {
 
   removeItem(id:string):Observable<any>
   {
-    return this._httpClient.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`,)
+    return this._httpClient.delete(`https://ecommerce.routemisr.com/api/v1/cart/${id}`)
   }
 
   generateOnlinePayment(cartId:string ,shippingAddress:any):Observable<any>
@@ -49,6 +49,11 @@ export class CartService {
     {
       "shippingAddress":shippingAddress
     })
+  }
+
+  getAllOrders(id:string): Observable<any>
+  {
+    return this._httpClient.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`)
   }
 
 

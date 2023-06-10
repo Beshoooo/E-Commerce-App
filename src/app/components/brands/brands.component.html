@@ -1,9 +1,9 @@
 <div class="container">
-  <ng-container class="d-flex justify-content-center align-items-center ">
-  <div class="row brand " *ngFor="let brand of AllBrands ;">
-    <div class="col-sm-3 col-md-3 g-5">
-      <img [src]="brand.image">
-    </div>
+  <div class="row brand d-flex justify-content-center align-items-center ">
+    <ng-container *ngFor="let brand of AllBrands ;">
+      <div class="col-sm-3 col-md-3">
+        <img [src]="brand.image">
+      </div>
+    </ng-container>
   </div>
-</ng-container>
 </div>

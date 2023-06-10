@@ -44,5 +44,11 @@ export class SignInComponent {
     }
   }
 
+  InTypePass:string ='password';
+  toggleShowPassword() {
+    if(this.InTypePass == 'password')
+    {this.InTypePass= 'text'}
+    else{this.InTypePass = 'password'}
+  }
 
 }

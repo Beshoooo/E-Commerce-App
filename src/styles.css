@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300&display=swap');
 
-body{padding-top: 150px;}
+body{padding-top: 100px;}
 *{
   font-family: 'Encode Sans', sans-serif;
 }
@@ -56,4 +56,25 @@ background-color: #3f4142;
   background-color: var(--main-color);
   border-radius: 50px;
   box-shadow: 0 0 5px rgb(0 0 0 / 0.5) inset;
+}
+
+
+/*For Material Snackbar*/
+.mat-mdc-snack-bar-container {
+  &.blue-snackbar {
+    --mdc-snackbar-container-color: #383838;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+.mat-mdc-snack-bar-container::after{
+  position:absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right:10%;
+  font-family: "FontAwesome";
+  content: "\f058";
+  color: #0dcc0d ;
+  font-size: 2rem;
+
 }

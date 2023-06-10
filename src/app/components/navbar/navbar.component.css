@@ -1,0 +1,17 @@
+.social{font-size: 1.5em;}
+.social i
+{
+  cursor: pointer;
+}
+
+.social .fa-instagram:hover {color:#FD0070 ;}
+.social .fa-facebook-f:hover {color:#1195F5 ;}
+.social .fa-twitter:hover {color:#1C9AEF ;}
+.social .fa-linkedin-in:hover {color:#0A65C1 ;}
+.social .fa-youtube:hover {color:#FF0000 ;}
+
+.fa-2x
+{font-size: 2.3rem;}
+
+.fa-heart{color:rgb(201, 8, 8)}
+.heart-badge{background-color:rgb(201, 8, 8) ; color: #fff;}

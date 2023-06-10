@@ -25,7 +25,7 @@ cartDetails :CartDetails ={} as CartDetails
   removeItemFromCart(id:string)
   {
     this._cartService.removeItem(id).subscribe({
-      next:res=>this.cartDetails = res
+      next:res=>{this.cartDetails = res;console.log(res)}
     })
   }
 

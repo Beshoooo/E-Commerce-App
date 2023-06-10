@@ -1,35 +1,41 @@
 <div class="container">
-  <h2>Login:</h2>
+  <h2 class="mb-4">Login:</h2>
 
 <!-- Error from server -->
   <div *ngIf="errorMsg" class="alert alert-danger mb-2 mt-3 py-2">
     <p class="mb-0">{{errorMsg}}</p>
   </div>
+
   <form [formGroup]="LoginForm" (ngSubmit)="Login(LoginForm)">
 <!-- Email  -->
-    <label for="email">Email:</label>
-    <input type="text" id="email" formControlName="email" class="form-control mb-2">
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" id="email" formControlName="email" placeholder="Ex. c2@gmail.com">
+    </mat-form-field>
 
-    <div *ngIf="LoginForm.get('email')?.errors && LoginForm.get('email')?.touched" class="alert alert-danger py-2">
-      <p *ngIf="LoginForm.get('email')?.getError('required')" class="mb-0">Email is required</p>
-      <p *ngIf="LoginForm.get('email')?.getError('email')"class="mb-0">Email is invaild</p>
+    <div *ngIf="LoginForm.get('email')?.errors && LoginForm.get('email')?.touched" class="text-danger closer">
+      <p *ngIf="LoginForm.get('email')?.getError('required')" class="mb-0">Email is<strong> required</strong></p>
+      <p *ngIf="LoginForm.get('email')?.getError('email')"class="mb-0">Enter <strong>valid</strong> email</p>
     </div>
 <!-- Password -->
-    <label for="password">Password:</label>
-    <input type="password" id="password" formControlName="password" class="form-control mb-2">
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput type="{{InTypePass}}" id="password" formControlName="password" placeholder="Ex. Alolk@123">
+      <mat-icon (click)="toggleShowPassword()" matSuffix>visibility_off</mat-icon>
+    </mat-form-field>
 
-    <div *ngIf="LoginForm.get('password')?.errors && LoginForm.get('password')?.touched" class="alert alert-danger py-2">
-      <p *ngIf="LoginForm.get('password')?.getError('required')" class="mb-0">Password is required</p>
-      <p *ngIf="LoginForm.get('password')?.getError('pattern')"class="mb-0">Password must start with capital char and contain at least 6 chars and digits  </p>
+    <div *ngIf="LoginForm.get('password')?.errors && LoginForm.get('password')?.touched" class="text-danger closer">
+      <p *ngIf="LoginForm.get('password')?.getError('required')" class="mb-0">Password is <strong>required</strong></p>
+      <p *ngIf="LoginForm.get('password')?.getError('pattern')"class="mb-0">Password must start with <strong>capital char and contain at least 6 chars and digits </strong> </p>
     </div>
 
 
-    <button type="submit" class="btn btn-success" [disabled]="LoginForm.invalid">
+    <button type="submit" class="btn btn-success d-block mb-3" [disabled]="LoginForm.invalid">
       Login
       <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin ms-1"></i>
     </button>
 
-
+    <a [routerLink]='["/ForgetPass"]'>Forget password ?</a>
 
   </form>
 

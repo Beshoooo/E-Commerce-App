@@ -9,6 +9,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 export class MainSliderComponent {
 
   customOptions: OwlOptions = {
+    autoplayTimeout:3000,
+    autoplay: true,
     loop: true,
     mouseDrag: false,
     touchDrag: false,

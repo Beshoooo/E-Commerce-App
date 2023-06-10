@@ -7,12 +7,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="IsLoggedIn">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold" *ngIf="IsLoggedIn">
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="Home" routerLinkActive="active">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="cart" routerLinkActive="active">Cart</a>
+          <a class="nav-link" routerLink="cart" routerLinkActive="active">My Cart</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="Products" routerLinkActive="active">Products</a>
@@ -24,33 +24,56 @@
           <a class="nav-link" routerLink="Brands" routerLinkActive="active">Brands</a>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto ">
-        <li class="navbar-nav d-flex align-items-center me-3">
-          <div class="d-flex">
-            <i class="fa-brands fa-instagram me-2"></i>
-            <i class="fa-brands fa-facebook-f me-2"></i>
-            <i class="fa-brands fa-twitter me-2"></i>
-            <i class="fa-brands fa-linkedin-in me-2"></i>
-            <i class="fa-brands fa-youtube me-2"></i>
+      <ul class="navbar-nav m-auto">
+        <li class="navbar-nav d-flex align-items-center me-4">
+          <div class="d-flex social">
+            <i class="fa-brands fa-instagram me-4">
+              <a href="https://www.instagram.com/beshoy__akram/"></a>
+            </i>
+            <i class="fa-brands fa-facebook-f me-4">
+              <a href="https://www.facebook.com/beshoy.beshoo"></a>
+            </i>
+            <i class="fa-brands fa-twitter me-4">
+              <a href="https://twitter.com/beshoyakram3"></a>
+            </i>
+            <i class="fa-brands fa-linkedin-in me-4">
+              <a href="https://www.linkedin.com/in/beshoyakram/"></a>
+            </i>
+            <i class="fa-brands fa-youtube me-4">
+              <a href="https://www.youtube.com/channel/UCbxrqGdhH0uQj9er7trQjhQ"></a>
+            </i>
           </div>
         </li>
       </ul>
 
       <ul class="navbar-nav ms-auto">
-        <li class="">
+        <li>
           <a class="nav-link cursorPointer position-relative">
-            <i routerLink="/cart" class="fa-solid fa-cart-shopping fa-2x text-main"></i>
-            <div class="badge bg-main position-absolute top-0 end-0">{{numOfCartItems}}</div>
+            <i routerLink="/wishlist" class="fa-regular fa-heart fa-2x text-danger"></i>
+            <div class="badge heart-badge position-absolute top-0 start-0">{{numOfWishlistItems}}</div>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto fw-bold">
+
+        <li>
+          <a class="nav-link cursorPointer position-relative">
+            <i routerLink="/cart" class="fa-solid fa-cart-shopping fa-flip-horizontal fa-2x text-main"></i>
+            <div class="badge bg-main position-absolute top-0 start-0">{{numOfCartItems}}</div>
           </a>
         </li>
 
-        <li class=" me-2" *ngIf="!IsLoggedIn">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="allorders" routerLinkActive="active">My Orders</a>
+        </li>
+
+        <li class=" me-2  fw-bold" *ngIf="!IsLoggedIn">
           <a class="nav-link cursorPointer" routerLink="Register" routerLinkActive="active">Register</a>
         </li>
-        <li class=" me-2" *ngIf="!IsLoggedIn">
+        <li class=" me-2  fw-bold" *ngIf="!IsLoggedIn">
           <a class="nav-link cursorPointer" routerLink="Login" routerLinkActive="active">Login</a>
         </li>
-        <li class=" me-2" *ngIf="IsLoggedIn">
+        <li class=" me-2  fw-bold" *ngIf="IsLoggedIn">
           <a class="nav-link cursorPointer" (click)="Logout()">Logout</a>
         </li>
 
