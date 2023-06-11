@@ -41,7 +41,7 @@ export class AllordersComponent implements OnInit {
       next:res=>
       {
         this.orders=res;
-        console.log(this.orders)
+        // console.log(this.orders)
       },
       error:err=>console.log(err)
     })

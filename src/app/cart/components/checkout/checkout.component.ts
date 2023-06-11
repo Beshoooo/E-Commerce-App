@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit {
       next:res=>
         {
           if(res.status == "success")
-          {
+          {console.log(res)
             window.location.href = res.session.url;
           }
         },
