@@ -7,13 +7,13 @@ A Fresh Cart App is an e-commerce website with a product catalog, a shopping car
 Features on my website:
 ----------------------------
 * Register/login page
-## Reset password 
--Add products to the cart
--Delete from the cart
--Add products to the wishlist
--Delete products from the wishlist
--checkout process 
--Fully responsive website 
+* Reset password 
+* Add products to the cart
+* Delete from the cart
+* Add products to the wishlist
+* Delete products from the wishlist
+* checkout process 
+* Fully responsive website 
 
 Authentication: Fully validated forms for registering, login, and Resetting password features 
 
