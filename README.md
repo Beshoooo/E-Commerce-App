@@ -1,4 +1,4 @@
-# E-Commerce-App
+# E-Commerce-App Using Angular
 
 I am glad to share my angular [Fresh Cart App] project.
 A Fresh Cart App is an e-commerce website with a product catalog, a shopping cart system, and a checkout process.
