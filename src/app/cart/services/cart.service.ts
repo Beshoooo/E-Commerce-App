@@ -45,7 +45,7 @@ export class CartService {
 
   generateOnlinePayment(cartId:string ,shippingAddress:any):Observable<any>
   {
-    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://beshoooo.github.io/E-Commerce-App/#/allorders`,
+    return this._httpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=https://beshoooo.github.io/E-Commerce-App`,
     {
       "shippingAddress":shippingAddress
     })
