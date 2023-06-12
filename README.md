@@ -19,4 +19,4 @@ Authentication: Fully validated forms for registering, login, and Resetting pass
 
 
 
-Thank you for taking the time to read my readme about my angular project. I hope you found it interesting. Stay tuned for more projects using angular in the future ❤️.
+Thank you for taking the time to read my readme about my angular project. I hope you found it interesting. Stay tuned for more projects using angular in the future.
