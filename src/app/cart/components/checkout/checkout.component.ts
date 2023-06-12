@@ -40,6 +40,9 @@ export class CheckoutComponent implements OnInit {
         {
           if(res.status == "success")
           {
+            //This line only for handle git hub return page
+            res.session.success_url="https://beshoooo.github.io/E-Commerce-App/#/allorders"
+            // console.log(res.session)
             window.location.href = res.session.url;
           }
         },
