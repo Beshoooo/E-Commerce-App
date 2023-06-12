@@ -24,7 +24,7 @@ export class CheckoutComponent implements OnInit {
   {
         //get all countries names
         _cartService.getAllCountries().subscribe({
-          next:res=>{this.countries=res.map((n: { name: any; })=>n.name);console.log(this.countries)},
+          next:res=>{this.countries=res.map((n: { name: any; })=>n.name);},
           error:err=>console.log(err)
         });
   }
@@ -39,7 +39,7 @@ export class CheckoutComponent implements OnInit {
       next:res=>
         {
           if(res.status == "success")
-          {console.log(res)
+          {
             window.location.href = res.session.url;
           }
         },
